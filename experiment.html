@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="clicky" onclick="replace()">Lets go</button><br>
+    <div id="container">
+<script>
+const board = document.querySelector(".board");
+
+// Call setBoard() -- make a 4x4 grid
+setBoard(16);
+
+// Bind the click event to .select
+document.querySelector(".select").onclick = enterData;
+
+ 
+function enterData() {
+  let a = prompt("Select the number of cells for the grid");
+  // If 'a' is a number, call setBoard()
+  if (typeof a === 'number') {
+    setBoard(a);
+  }
+}
+
+function setBoard(a) {
+  // Remove everything within .board
+  board.replaceChildren();
+  // Create a grid
+  for (let x = 1; x <= a; x++) {
+    const nCell = document.createElement('div')
+    nCell.className = "cell";
+    board.appendChild(nCell);
+  }
+}
+        </script>
+    </div>
+</body>
+</html> 
